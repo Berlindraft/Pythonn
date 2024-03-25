@@ -16,12 +16,14 @@ BLACK = (0, 0, 0)
 GRAY = (200, 200, 200)
 DARK_GRAY = (100, 100, 100)
 LIGHT_GRAY = (150, 150, 150)
+BEIGE = (228, 216, 180)
 
 # Player
-player_bg_color = GRAY
-player_bg_width = SCREEN_WIDTH  # Adjusted size of the player's background
-player_bg_height = SCREEN_HEIGHT // 2
-player_bg_rect = pygame.Rect((SCREEN_WIDTH // 2 - player_bg_width // 2, SCREEN_HEIGHT // 8), (player_bg_width, player_bg_height))  # Adjusted position
+player_bg_color = BEIGE
+player_bg_width = SCREEN_WIDTH // 1.08  # Adjusted size of the player's background
+player_bg_height = SCREEN_HEIGHT // 1.5
+player_bg_rect = pygame.Rect((SCREEN_WIDTH // 2 - player_bg_width // 2, SCREEN_HEIGHT // 30),
+                             (player_bg_width, player_bg_height))  # Adjusted position
 
 # Load player image
 # Define a variable for player size
@@ -48,10 +50,12 @@ BUTTON_HOVER_COLOR = (200, 200, 0)  # Yellow for hover effect
 BUTTON_PRESS_COLOR = (0, 200, 200)  # Cyan for pressed effect
 
 # Define colors for each button
-UP_BUTTON_COLOR = (255, 0, 0)  # Red
-DOWN_BUTTON_COLOR = (0, 255, 0)  # Green
-LEFT_BUTTON_COLOR = (0, 0, 255)  # Blue
-RIGHT_BUTTON_COLOR = (255, 255, 0)  # Yellow
+# UP_BUTTON_COLOR = (255, 0, 0)  # Red
+# DOWN_BUTTON_COLOR = (0, 255, 0)  # Green
+# LEFT_BUTTON_COLOR = (0, 0, 255)  # Blue
+# RIGHT_BUTTON_COLOR = (255, 255, 0)  # Yellow
+
+BUTTON_COLOR2 = (39, 35, 36)
 
 # Movement distance based on screen size
 movement_distance = min(SCREEN_WIDTH, SCREEN_HEIGHT) // 9  # Adjusted for smaller screen
@@ -59,8 +63,10 @@ movement_distance = min(SCREEN_WIDTH, SCREEN_HEIGHT) // 9  # Adjusted for smalle
 # Buttons
 up_button_rect = pygame.Rect(BUTTON_START_X, BUTTON_START_Y, BUTTON_SIZE, BUTTON_SIZE)
 down_button_rect = pygame.Rect(BUTTON_START_X, BUTTON_START_Y + BUTTON_SPACING, BUTTON_SIZE, BUTTON_SIZE)
-left_button_rect = pygame.Rect(BUTTON_START_X - BUTTON_SPACING, BUTTON_START_Y + BUTTON_SPACING, BUTTON_SIZE, BUTTON_SIZE)
-right_button_rect = pygame.Rect(BUTTON_START_X + BUTTON_SPACING, BUTTON_START_Y + BUTTON_SPACING, BUTTON_SIZE, BUTTON_SIZE)
+left_button_rect = pygame.Rect(BUTTON_START_X - BUTTON_SPACING, BUTTON_START_Y + BUTTON_SPACING, BUTTON_SIZE,
+                               BUTTON_SIZE)
+right_button_rect = pygame.Rect(BUTTON_START_X + BUTTON_SPACING, BUTTON_START_Y + BUTTON_SPACING, BUTTON_SIZE,
+                                BUTTON_SIZE)
 
 # Define gravity constant
 GRAVITY = 0.5  # Adjust as needed
@@ -110,7 +116,7 @@ while running:
     player_rect.y = max(player_bg_rect.top, min(player_rect.y, player_bg_rect.bottom - player_rect.height))
 
     # Clear screen
-    screen.fill(BLACK)
+    screen.fill(BUTTON_COLOR2)
 
     # Draw player background
     pygame.draw.rect(screen, player_bg_color, player_bg_rect)
@@ -119,10 +125,10 @@ while running:
     screen.blit(player_image, player_rect)
 
     # Draw buttons with respective colors
-    up_button_color = UP_BUTTON_COLOR if up_button_rect.collidepoint(pygame.mouse.get_pos()) else BUTTON_COLOR
-    down_button_color = DOWN_BUTTON_COLOR if down_button_rect.collidepoint(pygame.mouse.get_pos()) else BUTTON_COLOR
-    left_button_color = LEFT_BUTTON_COLOR if left_button_rect.collidepoint(pygame.mouse.get_pos()) else BUTTON_COLOR
-    right_button_color = RIGHT_BUTTON_COLOR if right_button_rect.collidepoint(pygame.mouse.get_pos()) else BUTTON_COLOR
+    up_button_color = WHITE if up_button_rect.collidepoint(pygame.mouse.get_pos()) else BUTTON_COLOR
+    down_button_color = WHITE if down_button_rect.collidepoint(pygame.mouse.get_pos()) else BUTTON_COLOR
+    left_button_color = WHITE if left_button_rect.collidepoint(pygame.mouse.get_pos()) else BUTTON_COLOR
+    right_button_color = WHITE if right_button_rect.collidepoint(pygame.mouse.get_pos()) else BUTTON_COLOR
 
     pygame.draw.rect(screen, up_button_color, up_button_rect)
     pygame.draw.rect(screen, down_button_color, down_button_rect)
