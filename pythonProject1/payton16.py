@@ -5,8 +5,8 @@ import sys
 pygame.init()
 
 # Set up the screen
-SCREEN_WIDTH = int(1080 * 1)  # Make the screen 40% smaller
-SCREEN_HEIGHT = int(2400 * 1)
+SCREEN_WIDTH = int(1080 * 0.3)  # Make the screen 40% smaller
+SCREEN_HEIGHT = int(2400 * 0.3)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Zyron")
 
@@ -119,7 +119,7 @@ while running:
     screen.fill(BUTTON_COLOR2)
 
     # Draw player background
-    #pygame.draw.rect(screen, player_bg_color, player_bg_rect)
+    # pygame.draw.rect(screen, player_bg_color, player_bg_rect)
 # Draw player background with rounded corners
     pygame.draw.rect(screen, player_bg_color, player_bg_rect, border_radius=20)
   # Adjust border_radius as needed

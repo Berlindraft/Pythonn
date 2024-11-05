@@ -10,7 +10,7 @@ class Node:
 
 # Template for the stack
 class Stack:
-    def __init__(self):
+    def __init__(self):     
         self.top = None
 
     # Push Method
